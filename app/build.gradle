@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion compile_version
+    defaultConfig {
+        applicationId "com.hodinv.spacex"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_version
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //suport
+    implementation "androidx.appcompat:appcompat:$androidx_appcompat"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extentions"
+    //kapt "com.android.databinding:compiler:$dataBindingCompilerVersion"
+    // kodein
+    implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
+    implementation "org.kodein.di:kodein-di-framework-android-core:$kodein_version"
+    implementation "org.kodein.di:kodein-di-framework-android-x:$kodein_version"
+    // rx
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_android_version"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version"
+
+
+
+    testImplementation "junit:junit:$junit_vertion"
+    testImplementation "org.mockito:mockito-core:$mochito_vertion"
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
+
+}
