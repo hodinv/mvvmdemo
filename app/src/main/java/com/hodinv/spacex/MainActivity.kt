@@ -2,7 +2,8 @@ package com.hodinv.spacex
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.hodinv.spacex.ui.main.MainFragment
+import com.hodinv.spacex.ui.rokets.RoketsFragment
+import com.hodinv.spacex.ui.rokets.RoketsRouter
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.KodeinContext
@@ -11,7 +12,8 @@ import org.kodein.di.generic.bind
 import org.kodein.di.generic.kcontext
 import org.kodein.di.generic.provider
 
-class MainActivity : AppCompatActivity(), KodeinAware {
+class MainActivity : AppCompatActivity(), KodeinAware,
+    RoketsRouter {
     override val kodeinContext: KodeinContext<*> = kcontext(this)
 
     private val _parentKodein by closestKodein()
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, RoketsFragment.newInstance())
                 .commitNow()
         }
     }

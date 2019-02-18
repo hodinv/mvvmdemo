@@ -6,9 +6,11 @@ import com.hodinv.spacex.interactors.interactorsModule
 import com.hodinv.spacex.model.modelModule
 import com.hodinv.spacex.repository.network.UrlProvider
 import com.hodinv.spacex.repository.repositoryModule
+import com.hodinv.spacex.ui.rokets.RoketsViewModel
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.bind
+import org.kodein.di.generic.provider
 import org.kodein.di.generic.singleton
 
 
@@ -23,6 +25,8 @@ class App : Application(), KodeinAware, UrlProvider {
             import(repositoryModule)
             import(interactorsModule)
             import(modelModule)
+
+            bind<RoketsViewModel>() with provider { RoketsViewModel() }
         }
     }
 
