@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">spacex</string>
-    <string name="api_url">...</string>
+    <string name="api_url">https://api.spacexdata.com</string>
 </resources>
