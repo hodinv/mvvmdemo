@@ -34,10 +34,6 @@ dependencies {
     // kodein
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
 
-    //room
-    implementation "android.arch.persistence.room:runtime:$room_version"
-    implementation "android.arch.persistence.room:rxjava2:$room_version"
-    kapt "android.arch.persistence.room:compiler:$room_version"
 
     // testing
     testImplementation "junit:junit:$junit_vertion"

@@ -7,7 +7,8 @@ import com.hodinv.spacex.interactors.interactorsModule
 import com.hodinv.spacex.model.modelModule
 import com.hodinv.spacex.repository.network.UrlProvider
 import com.hodinv.spacex.repository.repositoryModule
-import com.hodinv.spacex.ui.rokets.RoketsViewModel
+import com.hodinv.spacex.ui.rocketdetail.RocketDetailViewModel
+import com.hodinv.spacex.ui.rokets.RocketsViewModel
 import com.hodinv.spacex.utils.setupRxErrorHandler
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -29,7 +30,8 @@ class App : Application(), KodeinAware, UrlProvider {
             import(interactorsModule)
             import(modelModule)
 
-            bind<RoketsViewModel>() with provider { RoketsViewModel(instance()) }
+            bind<RocketsViewModel>() with provider { RocketsViewModel(instance()) }
+            bind<RocketDetailViewModel>() with provider { RocketDetailViewModel(instance()) }
         }
     }
 

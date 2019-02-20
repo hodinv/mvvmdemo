@@ -20,4 +20,13 @@ abstract class MvvmFragment<T : BaseViewModel<R>, R : MvvmRouter> : Fragment(), 
         initViewModel()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.router = router
+    }
+
+    override fun onPause() {
+        super.onPause()
+        viewModel.router = null
+    }
 }

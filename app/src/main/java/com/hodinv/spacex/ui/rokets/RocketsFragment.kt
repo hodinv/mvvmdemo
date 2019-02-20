@@ -11,17 +11,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hodinv.spacex.R
 import com.hodinv.spacex.mvvm.MvvmFragment
 import com.hodinv.spacex.mvvm.viewModelLazyInstance
-import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.fragment_main.*
 import org.kodein.di.generic.instance
 
-class RoketsFragment : MvvmFragment<RoketsViewModel, RoketsRouter>() {
-    override val router: RoketsRouter by instance()
+class RocketsFragment : MvvmFragment<RocketsViewModel, RocketsRouter>() {
+    override val router: RocketsRouter by instance()
 
     companion object {
-        fun newInstance() = RoketsFragment()
+        fun newInstance() = RocketsFragment()
     }
 
-    override val viewModel: RoketsViewModel by viewModelLazyInstance()
+    override val viewModel: RocketsViewModel by viewModelLazyInstance()
 
     private val adapter = RocketsAdapter {
         viewModel.showRocket(it)
@@ -45,7 +45,7 @@ class RoketsFragment : MvvmFragment<RoketsViewModel, RoketsRouter>() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

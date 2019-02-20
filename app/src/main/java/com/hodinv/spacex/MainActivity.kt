@@ -3,8 +3,9 @@ package com.hodinv.spacex
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.hodinv.spacex.ui.rocketdetail.RocketDetailFragment
-import com.hodinv.spacex.ui.rokets.RoketsFragment
-import com.hodinv.spacex.ui.rokets.RoketsRouter
+import com.hodinv.spacex.ui.rocketdetail.RocketDetailRouter
+import com.hodinv.spacex.ui.rokets.RocketsFragment
+import com.hodinv.spacex.ui.rokets.RocketsRouter
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.KodeinContext
@@ -14,7 +15,8 @@ import org.kodein.di.generic.kcontext
 import org.kodein.di.generic.provider
 
 class MainActivity : AppCompatActivity(), KodeinAware,
-    RoketsRouter {
+    RocketsRouter,
+    RocketDetailRouter {
     override fun showRocket(id: String) {
         startFragmentWithStacking(RocketDetailFragment.getInstance(id))
     }
@@ -31,9 +33,9 @@ class MainActivity : AppCompatActivity(), KodeinAware,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
-            startFragment(RoketsFragment.newInstance())
+            startFragment(RocketsFragment.newInstance())
         }
     }
 

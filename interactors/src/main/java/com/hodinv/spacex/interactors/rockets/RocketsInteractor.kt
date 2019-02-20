@@ -5,4 +5,6 @@ import io.reactivex.Single
 
 interface RocketsInteractor {
     fun getRockets(page: Int = 0): Single<List<Rocket>>
+
+    fun getRocket(id: String): Single<Rocket>
 }
